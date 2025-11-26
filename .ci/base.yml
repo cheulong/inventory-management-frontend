@@ -31,8 +31,8 @@ variables:
 
 stages:
   - prepare
-  # - sast_scan
-  # - test
+  - sast_scan
+  - test
   # - build
   # - security
   # - dast_scan
