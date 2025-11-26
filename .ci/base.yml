@@ -11,7 +11,7 @@ default:
   cache:
     key: ${CI_COMMIT_REF_SLUG}
     paths:
-      - node_modules/
+      - .npm/
       
 variables:
   DOCKER_NAME: "cheulong/movies-finder-frontend"
