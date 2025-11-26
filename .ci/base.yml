@@ -5,7 +5,7 @@ workflow:
     - when: always
 
 default:
-  image: node:23-bookworm-slim
+  image: node:24-bookworm-slim
   tags:
     - linux-homelab-general-vm
   cache:
