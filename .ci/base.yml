@@ -19,6 +19,7 @@ variables:
   DOCKER_TAG: $CI_COMMIT_SHORT_SHA
   DOCKER_HOST: tcp://docker:2375
   DOCKER_TLS_CERTDIR: ""
+  NPM_CONFIG_CACHE: "$CI_PROJECT_DIR/.npm"
 
 
 .base_docker_job:
@@ -28,9 +29,13 @@ variables:
     - name: docker:dind
       alias: docker
 
+.intall_dependencies:
+  before_script:
+    - npm ci --ignore-scripts --prefer-offline
+
 
 stages:
-  - prepare
+  # - prepare
   - sast_scan
   - test
   # - build

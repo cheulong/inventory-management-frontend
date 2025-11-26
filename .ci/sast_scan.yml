@@ -1,10 +1,10 @@
 .sast_common: &sast_common
   stage: sast_scan
-  needs: [install_dependencies]
 
 # ---- ESLINT ----
 eslint:
   <<: *sast_common
+  extends: .intall_dependencies
   script:
     - npm run lint
   allow_failure: false
@@ -26,6 +26,7 @@ gitleaks_scan:
 # ---- DEPENDENCY AUDIT ----
 npm_audit:
   <<: *sast_common
+  extends: .intall_dependencies
   script:
     - npm audit --audit-level=moderate
   allow_failure: false

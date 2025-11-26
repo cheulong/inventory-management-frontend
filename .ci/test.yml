@@ -1,14 +1,15 @@
 # ---- TEST ----
 unit_test:
   stage: test
+  extends: .intall_dependencies
   script:
     - npm run test
-  needs: [install_dependencies]
   allow_failure: false
 
 playwright_test:
   stage: test
   image: mcr.microsoft.com/playwright:v1.54.0-noble
+  extends: .intall_dependencies
   before_script:
     # Check for the Playwright cache directory
     - |
