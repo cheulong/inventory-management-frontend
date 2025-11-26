@@ -1,0 +1,9 @@
+# ---- PREPARE ----
+install_dependencies:
+  stage: prepare
+  script:
+    - npm ci --ignore-scripts
+  artifacts:
+    paths:
+      - node_modules/
+    expire_in: 1 hour

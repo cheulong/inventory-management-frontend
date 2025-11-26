@@ -1,0 +1,39 @@
+{
+  "git": {
+    "requireCleanWorkingDir": false,
+    "requireBranch": "main",
+    "commitMessage": "chore(release): v${version}"
+  },
+  "gitlab": {
+    "release": true,
+    "releaseName": "v${version}"
+  },
+  "github": {
+    "release": false
+  },
+  "npm": {
+    "publish": false
+  },
+  "hooks": {
+    "before:init": ["git pull", "npm run lint", "npm run test"]
+  },
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "infile": "CHANGELOG.md",
+      "preset": {
+        "name": "conventionalcommits",
+        "types": [
+          {
+            "type": "feat",
+            "section": "Features"
+          },
+          {
+            "type": "fix",
+            "section": "Bug Fixes"
+          },
+          {}
+        ]
+      }
+    }
+  }
+}

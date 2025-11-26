@@ -1,0 +1,5 @@
+export const useRouter = () => ({
+  push: vi.fn(),
+  replace: vi.fn(),
+  back: vi.fn(),
+});

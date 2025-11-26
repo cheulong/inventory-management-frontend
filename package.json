@@ -6,14 +6,44 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "vitest run",
+    "playwright": "playwright test",
+    "playwright:ui": "playwright test --ui",
+    "scan:trivy:config": "trivy config .",
+    "scan:trivy:fs": "trivy fs .",
+    "preview": "vite preview",
+    "prepare": "husky",
+    "lint-staged": "lint-staged",
+    "check-gitleaks": "gitleaks detect --source . --exit-code 1 --redact --verbose",
+    "commit": "cz",
+    "release": "release-it",
+    "release:patch": "release-it patch",
+    "release:minor": "release-it minor",
+    "release:major": "release-it major"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "npm run lint"
+    ],
+    "*": [
+      "npm run check-gitleaks"
+    ]
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@mui/material": "^7.3.4",
     "@mui/x-data-grid": "^8.14.0",
+    "@opentelemetry/api-logs": "^0.206.0",
+    "@opentelemetry/exporter-logs-otlp-http": "^0.206.0",
+    "@opentelemetry/exporter-metrics-otlp-http": "^0.208.0",
+    "@opentelemetry/resources": "^2.1.0",
+    "@opentelemetry/sdk-logs": "^0.206.0",
+    "@opentelemetry/semantic-conventions": "^1.37.0",
+    "@vitejs/plugin-react": "^5.0.4",
     "axios": "^1.12.2",
+    "callsites": "^4.2.0",
     "lucide-react": "^0.545.0",
     "next": "15.5.5",
     "numeral": "^2.0.6",
@@ -23,17 +53,41 @@
     "uuid": "^13.0.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
     "@eslint/eslintrc": "^3",
+    "@playwright/test": "^1.57.0",
+    "@release-it/conventional-changelog": "^10.0.1",
     "@tailwindcss/postcss": "^4",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.0",
     "@types/node": "^20.19.21",
     "@types/numeral": "^2.0.5",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/uuid": "^10.0.0",
+    "conventional-changelog-conventionalcommits": "8.0.0",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^9",
     "eslint-config-next": "15.5.5",
+    "globals": "^16.4.0",
+    "husky": "^9.1.7",
+    "jsdom": "^27.1.0",
+    "lint-staged": "^16.2.6",
+    "release-it": "^19.0.6",
     "tailwindcss": "^4",
     "tw-colors": "^3.3.2",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vite": "^7.1.7",
+    "vitest": "^4.0.14"
+  },
+  "overrides": {
+    "conventional-changelog-conventionalcommits": "8.0.0",
+    "@conventional-changelog/git-client": "^2.0.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
