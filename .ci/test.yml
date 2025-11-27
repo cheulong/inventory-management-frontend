@@ -10,7 +10,6 @@ playwright_test:
   stage: test
   image: mcr.microsoft.com/playwright:v1.54.0-noble
   before_script:
-    - npm ci --ignore-scripts --prefer-offline
     # Check for the Playwright cache directory
     - |
       if [ -d "$HOME/.cache/ms-playwright/chromium" ]; then
@@ -20,6 +19,7 @@ playwright_test:
         npx playwright install --with-deps chromium
       fi
   script:
+    - npm ci --ignore-scripts --prefer-offline
     - npm run playwright --reporter=html --output=playwright-report
   artifacts:
     when: always
