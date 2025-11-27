@@ -28,5 +28,5 @@ playwright_test:
       - playwright-report/
   # rules:
   #   - if: '$CI_COMMIT_BRANCH == "dev"'
-  when: manual      # Show with Play button on commits
+  # when: manual      # Show with Play button on commits
   allow_failure: true

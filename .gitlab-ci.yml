@@ -1,6 +1,6 @@
 include:
   - local: '.ci/base.yml'
-  # - local: '.ci/prepare.yml'
+  - local: '.ci/prepare.yml'
   - local: '.ci/sast_scan.yml'
   - local: '.ci/test.yml'
   # - local: '.ci/build.yml'

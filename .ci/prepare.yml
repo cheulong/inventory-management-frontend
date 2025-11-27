@@ -1,7 +1,10 @@
 # ---- PREPARE ----
-# install_dependencies:
-#   stage: prepare
-#   variables:
-#     NPM_CONFIG_CACHE: "$CI_PROJECT_DIR/.npm"
-#   script:
-#     - npm ci --ignore-scripts --prefer-offline
+install_dependencies:
+  stage: prepare
+  variables:
+    NPM_CONFIG_CACHE: "$CI_PROJECT_DIR/.npm"
+  script:
+    - npm ci --ignore-scripts --prefer-offline
+  artifacts:
+    paths:
+      - .npm/
