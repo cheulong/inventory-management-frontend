@@ -9,8 +9,8 @@ unit_test:
 playwright_test:
   stage: test
   image: mcr.microsoft.com/playwright:v1.54.0-noble
-  extends: .intall_dependencies
   before_script:
+    - npm ci --ignore-scripts --prefer-offline
     # Check for the Playwright cache directory
     - |
       if [ -d "$HOME/.cache/ms-playwright/chromium" ]; then
