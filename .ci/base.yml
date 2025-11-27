@@ -10,8 +10,8 @@ default:
     - linux-homelab-general-vm
   cache:
     key:
-    files:
-      - package-lock.json
+      files:
+        - package-lock.json
     paths:
       - .npm/
       
