@@ -1,3 +1,4 @@
+import { jsx } from "@emotion/react";
 import { LucideIcon } from "lucide-react";
 import React from "react";
 
@@ -10,7 +11,7 @@ type StatDetail = {
 
 type StatCardProps = {
   title: string;
-  primaryIcon: JSX.Element;
+  primaryIcon: jsx.JSX.Element;
   details: StatDetail[];
   dateRange: string;
 };
