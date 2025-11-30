@@ -40,10 +40,5 @@ stages:
   - prepare
   - sast_scan
   - test
-  # - build
-  # - security
-  # - dast_scan
-  # - deploy
-  # - release
-  # - slack_notify
-  # - clean_up
+  - slack_notify
+  - clean_up
